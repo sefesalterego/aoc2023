@@ -142,7 +142,7 @@ Die Symbole der Karte werden dabei nicht direkt als `char`-Werte gespeichert, so
 
 Im zweiten Teil muss man ermitteln, welche Felder innerhalb der Schleife liegen. Hier hilft es, dass wir wissen, dass der Rand der Karte immer entweder außerhalb der Schliefe oder direkt darauf liegt, aber niemals innerhalb. Das heißt man kann am Rand anfangen und die Karte durchlaufen. Hat man die einmal Schleife durchquert ist man drinnen, das nächste Mal wieder draußen.
 
-Der Haken an der Sache ist, dass man die Schleife *vollständig* durchlaufen muss. Kommt man z.B. von Süden, geht nach Osten und dreht dann wieder zurück nach Süden, war man nie innerhalb der Schleife. Das lässt sich leicht lösen, indem man den oberen (nördlichen) und den unteren (südlichen) Teil getrennt behandelt. Nur wenn man auf beiden Hälften die Schleife durchquert hat ist man von außen nach innen (oder umgekehrt) gekommen.
+Der Haken an der Sache ist, dass man die Schleife *vollständig* durchlaufen muss. Kommt man z.B. von Süden, geht nach Osten und dreht dann wieder zurück nach Süden, war man nie innerhalb der Schleife. Das lässt sich leicht lösen, indem man den oberen (nördlichen) und den unteren (südlichen) Teil getrennt behandelt. Nur wenn man auf beiden Hälften die Schleife durchquert hat, ist man von außen nach innen (oder umgekehrt) gekommen.
 
 **Lerneffekt:** Diese Aufgabe ist die perfekte Gelegenheit, sich mit Flag-Enums zu befassen und dabei die bitweisen boolschen Operatoren (`|`, `&` und `~`) zu verwenden.
 
