@@ -97,3 +97,39 @@ Für jedes Rennen ist die Lösung damit eine O(1)-Operation.
 
 **Relevanz für die Praxis:** gering
 
+## Tag 7
+
+Bei Tag 7 geht es in erster Linie darum, die Eingangsdaten zu gewichten und zu sortieren. Beim Thema sortieren in .NET ist in der Rgele das `IComparable<T>`-Interface relevant. Alle Implementierungen werden dann als sortierbar erkannt, z.B. von `List<T>.Sort`. Also frisch ans Werk und `IComparable<T>` implementiert. Damit das funktioniert, passieren beim Erstellen der sortierbaren Instanzen zwei Dinge: Der Wert des Bildes wird ermittelt und die Symbole für die einzlen Karten (A, K, Q, J, T, 9 usw.) werden auf andere Zeichen gemapt, die der regulären Sortierreihenfolge entsprechen. Dann in eine Liste, diese sortieren und die Wetten mit der Position in der Liste multiplizieren - fertig.
+
+Der zweite Teil ist im Prinzip identisch, nur dass hier die Joker berücksichtigt werden.
+
+**Lerneffekt:**
+* Man kommt dazu, mal das `IComparable<T>`-Interface zu implementieren.
+* Man kann eine `enum` für den Kartenwert erstellen und auch für die Sortierung verwenden.
+
+**Relevanz für die Praxis:** mittel. `IComparable<T>` (und wenn wir schon dabei sind auch `IEquatable<T>`) sollte man kennen und implementieren können.
+
+## Tag 8
+
+Ach ja, Tag 8. Der erste Teil kann direkt implementiert werden. Nur die einzelnen Knoten lesen und dann nach der LR-Reihenfolge durchgehen, fertig. Alles also ganz einfach.
+
+Ganz anders der zweite Teil. Das Vorgehen des ersten Teils funktioniert hier nicht, dafür sind es viel zu viele Durchläufe. Was habe ich alles versucht, den Vorgang hier zu optimieren: Gruppieren, Caching usw., nichts hat geholfen. Allerdings sind mir bei meinen Debugsessions zwei Dinge zu den Ausgangsdaten zwei Dinge aufgefallen:
+
+1. Jeder Ausgangspunkt \*\*A führt genau zu einem Endpunkt \*\*Z. Geht man dann weiter, kommt man immer wieder zum selben Endpunkt, und zwar in immer der gleichen Zahl von Schritten. Die Zahl der Schritte ist allerdings für jede Kombination aus Anfangs- und Endpunkt unterschiedlich.
+2. Wenn man am Endpunkt ankommt ist man immer am Ende der vorgegebenen LR-Reihenfolge. Der nächste Durchlauf fängt immer wieder am Anfang an. Damit ist sichergestellt, dass alle Durchläufe mit derselben LR-Folge durchgeführt werden können. Ob das gleichzeitig passiert, spielt keine Rolle.
+
+Diese Besonderheit bei den Ausgangsdaten ermöglicht einen einfachen Lösungsweg: Jede Kombination von Ausgangs- und Endpunkt kann getrenn durchlaufen und die Zahl der Durchläufe registriert werden. Das kleinste gemeinsame Vielfache (kgV) dieser Durchlaufzahlen ist die kleinste Zahl von Schritten und damit das gesuchte Ergebnis. Das kgV kann man unter Zuhilfenahme des größten gemeinsamen Teilers (ggT) ermitteln. Für den ggT gibt es den [euklidischen Algorithmus](https://de.wikipedia.org/wiki/Euklidischer_Algorithmus). Am Ende dauert die gesamte Ermittlung des Ergebnisses nur einen Sekundenbruchteil.
+
+**Lerneffekt:**
+* Der einfachste Lösungsweg funktioniert nicht immer bei größeren Datenmengen. In solchen Fällen muss eine optimalere Lösung her.
+* Es lohnt sich, auf die Besonderheiten des zu lösenden Problems zu schauen. Die oben genannen Punkte sind hier die entscheidende Vereinfachung, die eine effiziente Lösung ermöglicht.
+
+**Relevanz für die Praxis:** gering
+
+## Tag 9
+
+Dieses Promlem kann ohne weitere Umschweife nach dem in der Beschreibung dargestellten Algorithmus gelöst werden. Der zweite Teil bietet hier nichts neues, man macht das gleiche auf der anderen Seite (ich habe mich zunächst gefragt, ob ich was übersehe). Na ja. Wenigstens sind das zwei leicht verdiente Sterne.
+
+**Lerneffekt:** keiner
+
+**Relevanz für die PRaxis:** gering
