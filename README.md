@@ -89,7 +89,7 @@ Die Werte zwischen den beiden Schnittpunkten mit der x-Achse (2, 3, 4 und 5) sin
 
 Die beiden x lassen sich mit der Mitternachtsformel schnell ermitteln (da passt es, dass ich die Aufgabe um Mitternacht herum gelöst und eingecheckt habe):
 
-$x_{1,2} = \frac{t \pm \sqrt{t^2 + 4r}}{2}$
+$x_{1,2} = \frac{t \pm \sqrt{t^2 - 4r}}{2}$
 
 Für jedes Rennen ist die Lösung damit eine O(1)-Operation.
 
