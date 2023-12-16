@@ -128,8 +128,24 @@ Diese Besonderheit bei den Ausgangsdaten ermöglicht einen einfachen Lösungsweg
 
 ## Tag 9
 
-Dieses Promlem kann ohne weitere Umschweife nach dem in der Beschreibung dargestellten Algorithmus gelöst werden. Der zweite Teil bietet hier nichts neues, man macht das gleiche auf der anderen Seite (ich habe mich zunächst gefragt, ob ich was übersehe). Na ja. Wenigstens sind das zwei leicht verdiente Sterne.
+Dieses Promlem kann ohne weitere Umschweife nach dem in der Beschreibung dargestellten Algorithmus gelöst werden. Der zweite Teil bietet hier nichts neues, man macht das gleiche auf der anderen Seite (ich habe mich zunächst gefragt, ob ich was übersehe). Zwei leicht verdiente Sterne.
 
 **Lerneffekt:** keiner
 
 **Relevanz für die Praxis:** gering
+
+## Tag 10
+
+Teil 1 des Problems lässt sich mit dem offensichtlichen Ansatz sehr gut lösen: Man fängt beim Startpunkt an und folgt der Verbindung. Das kann man entweder zurück zum Startpunkt machen und dann die Zahl der durchlaufenen Felder halbieren, oder man macht das gleichzeitig von beiden Richtungen. Ich habe das zweite gemacht.
+
+Die Symbole der Karte werden dabei nicht direkt als `char`-Werte gespeichert, sondern als `[Flags] enum`, in der die möglichen Richtungen verzeichnet sind. So wird z.B. aus `'L'` `Pipes.North | Pipes.East`, aus `'|'` wird `Pipes.North | Pipes.South` usw. Das erleichtert das Durchlaufen der Felder, da man die Richtung des nächsten Feldes sehr leicht bestimmen kann: Wenn z.B. das aktuelle Feld den Wert `Pipes.North | Pipes.East` hat und ich aus Osten komme, komme ich durch `(Pipes.North | Pipes.East) & ~Pipes.East` ganz einfach auf `Pipes.North` (verallgemeinert: `<neue Richtung> = <aktuelles Feld> & ~<Richtung aus der ich komme>`).
+
+Im zweiten Teil muss man ermitteln, welche Felder innerhalb der Schleife liegen. Hier hilft es, dass wir wissen, dass der Rand der Karte immer entweder außerhalb der Schliefe oder direkt darauf liegt, aber niemals innerhalb. Das heißt man kann am Rand anfangen und die Karte durchlaufen. Hat man die einmal Schleife durchquert ist man drinnen, das nächste Mal wieder draußen.
+
+Der Haken an der Sache ist, dass man die Schleife *vollständig* durchlaufen muss. Kommt man z.B. von Süden, geht nach Osten und dreht dann wieder zurück nach Süden, war man nie innerhalb der Schleife. Das lässt sich leicht lösen, indem man den oberen (nördlichen) und den unteren (südlichen) Teil getrennt behandelt. Nur wenn man auf beiden Hälften die Schleife durchquert hat, ist man von außen nach innen (oder umgekehrt) gekommen.
+
+Als Bonus zeichnet meine Lösung eine Karte der Schleife und markiert dort die inneren Felder (falls jemand die inneren Felder lieber selbst zählen will). 
+
+**Lerneffekt:** Diese Aufgabe ist die perfekte Gelegenheit, sich mit Flag-Enums zu befassen und dabei die bitweisen boolschen Operatoren (`|`, `&` und `~`) zu verwenden.
+
+**Relevanz für die Praxis:** mittel
