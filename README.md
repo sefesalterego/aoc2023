@@ -132,4 +132,4 @@ Dieses Promlem kann ohne weitere Umschweife nach dem in der Beschreibung dargest
 
 **Lerneffekt:** keiner
 
-**Relevanz für die PRaxis:** gering
+**Relevanz für die Praxis:** gering
