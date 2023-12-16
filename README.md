@@ -144,6 +144,8 @@ Im zweiten Teil muss man ermitteln, welche Felder innerhalb der Schleife liegen.
 
 Der Haken an der Sache ist, dass man die Schleife *vollständig* durchlaufen muss. Kommt man z.B. von Süden, geht nach Osten und dreht dann wieder zurück nach Süden, war man nie innerhalb der Schleife. Das lässt sich leicht lösen, indem man den oberen (nördlichen) und den unteren (südlichen) Teil getrennt behandelt. Nur wenn man auf beiden Hälften die Schleife durchquert hat, ist man von außen nach innen (oder umgekehrt) gekommen.
 
+Als Bonus zeichnet meine Lösung eine Karte der Schleife und markiert dort die inneren Felder (falls jemand die inneren Felder lieber selbst zählen will). 
+
 **Lerneffekt:** Diese Aufgabe ist die perfekte Gelegenheit, sich mit Flag-Enums zu befassen und dabei die bitweisen boolschen Operatoren (`|`, `&` und `~`) zu verwenden.
 
 **Relevanz für die Praxis:** mittel
