@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34330.188
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HotSprings", "HotSprings\HotSprings.csproj", "{88799D02-0C9A-4E38-853D-409DF8A09494}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{88799D02-0C9A-4E38-853D-409DF8A09494}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{88799D02-0C9A-4E38-853D-409DF8A09494}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{88799D02-0C9A-4E38-853D-409DF8A09494}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{88799D02-0C9A-4E38-853D-409DF8A09494}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6C972C91-36CB-4D05-AC8C-315EB7E39D8A}
+	EndGlobalSection
+EndGlobal
