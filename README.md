@@ -157,3 +157,11 @@ Die Aufgabe lässt sich ziemlich direkt lösen. Man sollte nur nicht die Eingabe
 **Lerneffekt:** keiner
 
 **Relevanz für die Praxis:** gering
+
+## Tag 12
+
+Hier ist schon nach dem Lesen der Aufgabe klar, dass hier bei größeren Datensätzen der Brute-Force-Ansatz (Durchprobieren aller Möglichkeiten) nicht funktionieren wird. Bei Teil 1 habe ich mich trotzdem dafür entschieden, weil es am einfachsten umzusetzen ist. Das hat da auch gut funktioniert und die Lösung war ohne merkliche Verzögerung ermittelt. Bei Teil 2 sieht das (erwartungsgemäß) ganz anders aus. Hier funktioniert dieser Ansatz nicht. Auch wenn ich ein paar Ideen für bessere Algorithmen habe, lasse ich Teil 2 erstmal unbearbeitet. Meine Zeit ist begrenzt und es gibt noch mehr Aufgaben.
+
+**Lerneffekt:** Ein gutes Pferd springt nur so hoch wie es muss. Und für den ersten Teil hat die direkte Lösung gut funktioniert. Wenn der Algorithmus dann nicht mehr reicht, kann man ihn immer moch anpassen.
+
+**Relevanz für die Praxis:** gering
