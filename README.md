@@ -149,3 +149,11 @@ Als Bonus zeichnet meine Lösung eine Karte der Schleife und markiert dort die i
 **Lerneffekt:** Diese Aufgabe ist die perfekte Gelegenheit, sich mit Flag-Enums zu befassen und dabei die bitweisen boolschen Operatoren (`|`, `&` und `~`) zu verwenden.
 
 **Relevanz für die Praxis:** mittel
+
+## Tag 11
+
+Die Aufgabe lässt sich ziemlich direkt lösen. Man sollte nur nicht die Eingabedaten als Array auslesen, das macht spätestens beim zweiten Teil Probleme. Hier ist es am besten, die Galaxien in eine Liste zu schreiben und dann die Expansion auf der Liste durchzuführen. Interessanterweise kam bei mir die Linq-Query mit `Enumerable.Sum` nicht zurück (was eigentlich mit ca. 94.000 Einträgen nicht so sein sollte). Aber mit einer Schleife ist das kein Problem.
+
+**Lerneffekt:** keiner
+
+**Relevanz für die Praxis:** gering
