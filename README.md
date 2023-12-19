@@ -128,7 +128,7 @@ Diese Besonderheit bei den Ausgangsdaten ermöglicht einen einfachen Lösungsweg
 
 ## Tag 9
 
-Dieses Promlem kann ohne weitere Umschweife nach dem in der Beschreibung dargestellten Algorithmus gelöst werden. Der zweite Teil bietet hier nichts neues, man macht das gleiche auf der anderen Seite (ich habe mich zunächst gefragt, ob ich was übersehe). Zwei leicht verdiente Sterne.
+Dieses Problem kann ohne weitere Umschweife nach dem in der Beschreibung dargestellten Algorithmus gelöst werden. Der zweite Teil bietet hier nichts neues, man macht das gleiche auf der anderen Seite (ich habe mich zunächst gefragt, ob ich was übersehe). Zwei leicht verdiente Sterne.
 
 **Lerneffekt:** keiner
 
