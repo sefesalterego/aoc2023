@@ -165,3 +165,14 @@ Hier ist schon nach dem Lesen der Aufgabe klar, dass hier bei größeren Datens�
 **Lerneffekt:** Ein gutes Pferd springt nur so hoch wie es muss. Und für den ersten Teil hat die direkte Lösung gut funktioniert. Wenn der Algorithmus dann nicht mehr reicht, kann man ihn immer moch anpassen.
 
 **Relevanz für die Praxis:** gering
+
+## Tag 13
+
+Das schwerste an dieser Aufgabe war, die Aufgabenstellung zu verstehen. Man kann den Text unterschiedlich interpretieren und meine ersten Versuche waren dann auch falsch. Die richtige Interpretation der beiden Teile ist:
+
+* Teil 1: Es zählen nur Reflektionen, die den Rand berühren (oben, unten, links oder rechts). Es gibt z.T. in den Mustern mehrere Reflektionen, manchmal auch horizontale und vertikale im selben Muster. Diese zählen alle nicht. Es zählt nur die eine, die den Rand berührt.
+* Teil 2: Maßgeblich ist ausschließlich die Reflektion mit dem Fehler. Es kommt vor, dass der Fehler gar nicht in der Reflektion war, die zuerst gewonnen hatte. In diesen Fällen gibt es zwei Reflektionen, die den Rand berühren. Die Reflektion ohne Fehler ist in diesem Fall aber zu ignorieren.
+
+**Lerneffekt:** Wenn die Anforderungen nicht eindeutig sind, gibt es keine Garantie für ein richtiges Ergebnis. Auch wenn das Programm selbst richtig funktioniert.
+
+**Relevanz für die Praxis:** gering
