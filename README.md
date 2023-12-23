@@ -118,7 +118,7 @@ Ganz anders der zweite Teil. Das Vorgehen des ersten Teils funktioniert hier nic
 1. Jeder Ausgangspunkt \*\*A führt genau zu einem Endpunkt \*\*Z. Geht man dann weiter, kommt man immer wieder zum selben Endpunkt, und zwar in immer der gleichen Zahl von Schritten. Die Zahl der Schritte ist allerdings für jede Kombination aus Anfangs- und Endpunkt unterschiedlich.
 2. Wenn man am Endpunkt ankommt ist man immer am Ende der vorgegebenen LR-Reihenfolge. Der nächste Durchlauf fängt immer wieder am Anfang an. Damit ist sichergestellt, dass alle Durchläufe mit derselben LR-Folge durchgeführt werden können.
 
-Diese Besonderheit bei den Ausgangsdaten ermöglicht einen einfachen Lösungsweg: Jede Kombination von Ausgangs- und Endpunkt kann getrenn durchlaufen und die Zahl der Durchläufe registriert werden. Das kleinste gemeinsame Vielfache (kgV) dieser Durchlaufzahlen ist die kleinste Zahl von Schritten und damit das gesuchte Ergebnis. Das kgV kann man unter Zuhilfenahme des größten gemeinsamen Teilers (ggT) ermitteln. Für den ggT gibt es den [euklidischen Algorithmus](https://de.wikipedia.org/wiki/Euklidischer_Algorithmus). Am Ende dauert die gesamte Ermittlung des Ergebnisses nur einen Sekundenbruchteil.
+Diese Besonderheit bei den Ausgangsdaten ermöglicht einen einfachen Lösungsweg: Jede Kombination von Ausgangs- und Endpunkt kann getrennt durchlaufen und die Zahl der Durchläufe registriert werden. Das kleinste gemeinsame Vielfache (kgV) dieser Durchlaufzahlen ist die kleinste Zahl von Schritten und damit das gesuchte Ergebnis. Das kgV kann man unter Zuhilfenahme des größten gemeinsamen Teilers (ggT) ermitteln. Für den ggT gibt es den [euklidischen Algorithmus](https://de.wikipedia.org/wiki/Euklidischer_Algorithmus). Am Ende dauert die gesamte Ermittlung des Ergebnisses nur einen Sekundenbruchteil.
 
 **Lerneffekt:**
 * Der einfachste Lösungsweg funktioniert nicht immer bei größeren Datenmengen. In solchen Fällen muss eine optimalere Lösung her.
@@ -128,7 +128,7 @@ Diese Besonderheit bei den Ausgangsdaten ermöglicht einen einfachen Lösungsweg
 
 ## Tag 9
 
-Dieses Promlem kann ohne weitere Umschweife nach dem in der Beschreibung dargestellten Algorithmus gelöst werden. Der zweite Teil bietet hier nichts neues, man macht das gleiche auf der anderen Seite (ich habe mich zunächst gefragt, ob ich was übersehe). Zwei leicht verdiente Sterne.
+Dieses Problem kann ohne weitere Umschweife nach dem in der Beschreibung dargestellten Algorithmus gelöst werden. Der zweite Teil bietet hier nichts neues, man macht das gleiche auf der anderen Seite (ich habe mich zunächst gefragt, ob ich was übersehe). Zwei leicht verdiente Sterne.
 
 **Lerneffekt:** keiner
 
@@ -140,7 +140,7 @@ Teil 1 des Problems lässt sich mit dem offensichtlichen Ansatz sehr gut lösen:
 
 Die Symbole der Karte werden dabei nicht direkt als `char`-Werte gespeichert, sondern als `[Flags] enum`, in der die möglichen Richtungen verzeichnet sind. So wird z.B. aus `'L'` `Pipes.North | Pipes.East`, aus `'|'` wird `Pipes.North | Pipes.South` usw. Das erleichtert das Durchlaufen der Felder, da man die Richtung des nächsten Feldes sehr leicht bestimmen kann: Wenn z.B. das aktuelle Feld den Wert `Pipes.North | Pipes.East` hat und ich aus Osten komme, komme ich durch `(Pipes.North | Pipes.East) & ~Pipes.East` ganz einfach auf `Pipes.North` (verallgemeinert: `<neue Richtung> = <aktuelles Feld> & ~<Richtung aus der ich komme>`).
 
-Im zweiten Teil muss man ermitteln, welche Felder innerhalb der Schleife liegen. Hier hilft es, dass wir wissen, dass der Rand der Karte immer entweder außerhalb der Schliefe oder direkt darauf liegt, aber niemals innerhalb. Das heißt man kann am Rand anfangen und die Karte durchlaufen. Hat man die einmal Schleife durchquert ist man drinnen, das nächste Mal wieder draußen.
+Im zweiten Teil muss man ermitteln, welche Felder innerhalb der Schleife liegen. Hier hilft es, dass wir wissen, dass der Rand der Karte immer entweder außerhalb der Schliefe oder direkt darauf liegt, aber niemals innerhalb. Das heißt man kann am Rand anfangen und die Karte durchlaufen. Hat man die einmal Schleife durchquert, ist man drinnen, das nächste Mal wieder draußen.
 
 Der Haken an der Sache ist, dass man die Schleife *vollständig* durchlaufen muss. Kommt man z.B. von Süden, geht nach Osten und dreht dann wieder zurück nach Süden, war man nie innerhalb der Schleife. Das lässt sich leicht lösen, indem man den oberen (nördlichen) und den unteren (südlichen) Teil getrennt behandelt. Nur wenn man auf beiden Hälften die Schleife durchquert hat, ist man von außen nach innen (oder umgekehrt) gekommen.
 
@@ -155,5 +155,13 @@ Als Bonus zeichnet meine Lösung eine Karte der Schleife und markiert dort die i
 Die Aufgabe lässt sich ziemlich direkt lösen. Man sollte nur nicht die Eingabedaten als Array auslesen, das macht spätestens beim zweiten Teil Probleme. Hier ist es am besten, die Galaxien in eine Liste zu schreiben und dann die Expansion auf der Liste durchzuführen. Interessanterweise kam bei mir die Linq-Query mit `Enumerable.Sum` nicht zurück (was eigentlich mit ca. 94.000 Einträgen nicht so sein sollte). Aber mit einer Schleife ist das kein Problem.
 
 **Lerneffekt:** keiner
+
+**Relevanz für die Praxis:** gering
+
+## Tag 12
+
+Hier ist schon nach dem Lesen der Aufgabe klar, dass hier bei größeren Datensätzen der Brute-Force-Ansatz (Durchprobieren aller Möglichkeiten) nicht funktionieren wird. Bei Teil 1 habe ich mich trotzdem dafür entschieden, weil es am einfachsten umzusetzen ist. Das hat da auch gut funktioniert und die Lösung war ohne merkliche Verzögerung ermittelt. Bei Teil 2 sieht das (erwartungsgemäß) ganz anders aus. Hier funktioniert dieser Ansatz nicht. Auch wenn ich ein paar Ideen für bessere Algorithmen habe, lasse ich Teil 2 erstmal unbearbeitet. Meine Zeit ist begrenzt und es gibt noch mehr Aufgaben.
+
+**Lerneffekt:** Ein gutes Pferd springt nur so hoch wie es muss. Und für den ersten Teil hat die direkte Lösung gut funktioniert. Wenn der Algorithmus dann nicht mehr reicht, kann man ihn immer moch anpassen.
 
 **Relevanz für die Praxis:** gering
