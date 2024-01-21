@@ -140,7 +140,7 @@ Teil 1 des Problems lässt sich mit dem offensichtlichen Ansatz sehr gut lösen:
 
 Die Symbole der Karte werden dabei nicht direkt als `char`-Werte gespeichert, sondern als `[Flags] enum`, in der die möglichen Richtungen verzeichnet sind. So wird z.B. aus `'L'` `Pipes.North | Pipes.East`, aus `'|'` wird `Pipes.North | Pipes.South` usw. Das erleichtert das Durchlaufen der Felder, da man die Richtung des nächsten Feldes sehr leicht bestimmen kann: Wenn z.B. das aktuelle Feld den Wert `Pipes.North | Pipes.East` hat und ich aus Osten komme, komme ich durch `(Pipes.North | Pipes.East) & ~Pipes.East` ganz einfach auf `Pipes.North` (verallgemeinert: `<neue Richtung> = <aktuelles Feld> & ~<Richtung aus der ich komme>`).
 
-Im zweiten Teil muss man ermitteln, welche Felder innerhalb der Schleife liegen. Hier hilft es, dass wir wissen, dass der Rand der Karte immer entweder außerhalb der Schliefe oder direkt darauf liegt, aber niemals innerhalb. Das heißt man kann am Rand anfangen und die Karte durchlaufen. Hat man die einmal Schleife durchquert, ist man drinnen, das nächste Mal wieder draußen.
+Im zweiten Teil muss man ermitteln, welche Felder innerhalb der Schleife liegen. Hier hilft es, dass wir wissen, dass der Rand der Karte immer entweder außerhalb der Schleife oder direkt darauf liegt, aber niemals innerhalb. Das heißt man kann am Rand anfangen und die Karte durchlaufen. Hat man die einmal Schleife durchquert, ist man drinnen, das nächste Mal wieder draußen.
 
 Der Haken an der Sache ist, dass man die Schleife *vollständig* durchlaufen muss. Kommt man z.B. von Süden, geht nach Osten und dreht dann wieder zurück nach Süden, war man nie innerhalb der Schleife. Das lässt sich leicht lösen, indem man den oberen (nördlichen) und den unteren (südlichen) Teil getrennt behandelt. Nur wenn man auf beiden Hälften die Schleife durchquert hat, ist man von außen nach innen (oder umgekehrt) gekommen.
 
@@ -179,7 +179,9 @@ Das schwerste an dieser Aufgabe war, die Aufgabenstellung zu verstehen. Man kann
 
 ## Tag 14
 
-Teil 1 lässt sich direkt dadurch lösen, dass man die Eingabe in ein mehrdimensionals `char`-Array lädt und dieses dann gemäß des beschriebenen Algorithmus umformt. Im zweiten Teil muss man das in alle Himmelsrichtungen machen und das auch noch eine Millarde Male hintereinander. Das geht nicht mehr durch einfaches Durchprobieren, da das zu lange dauern würde. Das muss man aber auch gar nicht, da sich die Muster neich einigen Versuchen wiederholen. Von der Zahl dieser Versuche lässt sich das Muster, das nach 1.000.000.000 Versuchen gilt, leicht berechnen.
+Teil 1 lässt sich direkt dadurch lösen, dass man die Eingabe in ein mehrdimensionales `char`-Array lädt und dieses dann gemäß des beschriebenen Algorithmus umformt. Im zweiten Teil muss man das in alle Himmelsrichtungen machen und das auch noch eine Millarde Male hintereinander. Das geht nicht mehr durch einfaches Durchprobieren, da das zu lange dauern würde. Das muss man aber auch gar nicht, da sich die Muster nach einigen Versuchen wiederholen. Von der Zahl dieser Versuche lässt sich das Muster, das nach 1.000.000.000 Versuchen gilt, leicht berechnen.
+
+Die Bewegung in alle Himmelsrichtungen kann man entweder direkt programmieren, dann ist viel Copy/Paste im Spiel. Oder man bewegt die Matrix immer nach Norden und rotiert sie dabei im Uhrzeigersinn. Meine ursprüngliche Lösung hat es auf die erste Weise genacht; der endgültige Code ist deutlich kürzer, da dabei das zweite Verfahren verwendet wird.
 
 **Lerneffekt:** Wer alle vorherigen Rätsel durch hat, lernt hier nichts Neues.
 
