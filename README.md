@@ -176,3 +176,11 @@ Das schwerste an dieser Aufgabe war, die Aufgabenstellung zu verstehen. Man kann
 **Lerneffekt:** Wenn die Anforderungen nicht eindeutig sind, gibt es keine Garantie für ein richtiges Ergebnis. Auch wenn das Programm selbst richtig funktioniert.
 
 **Relevanz für die Praxis:** gering
+
+## Tag 14
+
+Teil 1 lässt sich direkt dadurch lösen, dass man die Eingabe in ein mehrdimensionals `char`-Array lädt und dieses dann gemäß des beschriebenen Algorithmus umformt. Im zweiten Teil muss man das in alle Himmelsrichtungen machen und das auch noch eine Millarde Male hintereinander. Das geht nicht mehr durch einfaches Durchprobieren, da das zu lange dauern würde. Das muss man aber auch gar nicht, da sich die Muster neich einigen Versuchen wiederholen. Von der Zahl dieser Versuche lässt sich das Muster, das nach 1.000.000.000 Versuchen gilt, leicht berechnen.
+
+**Lerneffekt:** Wer alle vorherigen Rätsel durch hat, lernt hier nichts Neues.
+
+**Relevanz für die Praxis:** gering
