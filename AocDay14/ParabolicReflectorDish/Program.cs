@@ -81,10 +81,11 @@ struct Pattern
 		Array.Copy(m_value, cloneValue, m_value.Length);
 		Pattern clone = new(cloneValue);
 
-		clone.MoveNorth();
-		clone.MoveWest();
-		clone.MoveSouth();
-		clone.MoveEast();
+		for (int index = 0; index < 4; index++)
+		{
+			clone.MoveNorth();
+			clone.RotateClockwise();
+		}
 
 		return clone;
 	}
@@ -119,92 +120,22 @@ struct Pattern
 		}
 	}
 
-	void MoveWest()
+	private void RotateClockwise()
 	{
-		for (int y = 0; y < m_value.GetLength(1); y++)
+		int size = m_value.GetLength(0);
+		for(int ring = 0; ring < size / 2; ring++)
 		{
-			int freeBefore = 0;
-			for (int x = 0; x < m_value.GetLength(0); x++)
+			for (int step = ring; step < size - (1 + ring); step++)
 			{
-				switch (m_value[x, y])
-				{
-					case '.':
-						freeBefore++;
-						break;
-
-					case 'O':
-						if (freeBefore > 0)
-						{
-							m_value[x, y] = '.';
-							m_value[x - freeBefore, y] = 'O';
-						}
-						break;
-
-					default:
-						freeBefore = 0;
-						break;
-
-				}
-			}
-		}
-	}
-
-	void MoveSouth()
-	{
-		for (int x = 0; x < m_value.GetLength(0); x++)
-		{
-			int freeBelow = 0;
-			for (int y = m_value.GetLength(1) - 1; y >= 0; y--)
-			{
-				switch (m_value[x, y])
-				{
-					case '.':
-						freeBelow++;
-						break;
-
-					case 'O':
-						if (freeBelow > 0)
-						{
-							m_value[x, y] = '.';
-							m_value[x, y + freeBelow] = 'O';
-						}
-						break;
-
-					default:
-						freeBelow = 0;
-						break;
-
-				}
-			}
-		}
-	}
-
-	void MoveEast()
-	{
-		for (int y = 0; y < m_value.GetLength(1); y++)
-		{
-			int freeAfter = 0;
-			for (int x = m_value.GetLength(0) - 1; x >= 0; x--)
-			{
-				switch (m_value[x, y])
-				{
-					case '.':
-						freeAfter++;
-						break;
-
-					case 'O':
-						if (freeAfter > 0)
-						{
-							m_value[x, y] = '.';
-							m_value[x + freeAfter, y] = 'O';
-						}
-						break;
-
-					default:
-						freeAfter = 0;
-						break;
-
-				}
+				char carry = m_value[size - (ring + 1), step];
+				m_value[size - (ring + 1), step] = m_value[step, ring];
+				char temp = m_value[size - (step + 1), size - (ring + 1)];
+				m_value[size - (step + 1), size - (ring + 1)] = carry;
+				carry = temp;
+				temp = m_value[ring, size - (step + 1)];
+				m_value[ring, size - (step + 1)] = carry;
+				carry = temp;
+				m_value[step, ring] = carry;
 			}
 		}
 	}
