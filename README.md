@@ -195,3 +195,10 @@ Teil 1 sollte mittlerweile keine Herausforderung mehr sein. Die Berechnung der H
 
 **Relevanz für die Praxis:** eher gering
 
+## Tag 16
+
+Tag 16 ist keine Herausforderung mehr, wenn man Tag 10 gelöst hat. Die Aufgaben sind sich so ähnlich, dass man mit sie nahezu mit derselben Herangehensweise lösen kann. Bei meiner Lösung merke ich mir, wenn eine Kachel aus einer Richtung durchlaufen wurde, das begrenzt die Zahl der Durchläufe auf maximal 4 * Zahl der Kacheln. Ich lasse dabei sogar einige Optimierungen liegen; z.B. kann man den Durchlauf in Gegenrichtung auch als erfolgt markieren, da auch in diesem Fall alle möglichen Pfade schon abgedeckt sind. Die einfachere Lösung ist hier aber völlig ausreichend, auch für den 2. Teil, in dem es deutlich mehr Durchläufe gibt.
+
+**Lernefekt:** keiner
+
+**Relevanz für die Praxis:** gering
