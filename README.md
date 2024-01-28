@@ -186,3 +186,11 @@ Die Bewegung in alle Himmelsrichtungen kann man entweder direkt programmieren, d
 **Lerneffekt:** Wer alle vorherigen Rätsel durch hat, lernt hier nichts Neues.
 
 **Relevanz für die Praxis:** gering
+
+## Tag 15
+
+Teil 1 sollte mittlerweile keine Herausforderung mehr sein. Die Berechnung der Hashwerte ist nicht schwer und dass alles am Schlus summiert wird ist auch nichts neues. In Teil 2 habe ich mit einem Array von verketteten Listen (`LinkedLIst<T>`) gearbeitet, da hier viel in der Mitte hinzugefügt und entfernt werden muss und wahlfreier Zugriff nicht erforderlich ist. In diesem Fall ist die verkettete Liste die effizienteste Lösung.
+
+**Lerneffekt:** Das ist ein gutes Beispiel dafür, dass es Fälle gibt, in der `List<T>` nicht die beste Lösung ist. Hier ist es hilfreich, die Vor- und Nachteile der verschiedenen Arten von Listen zu kennen.
+**Relevanz für die Praxis:** eher gering
+
